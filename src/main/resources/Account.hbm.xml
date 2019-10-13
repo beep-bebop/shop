@@ -1,0 +1,27 @@
+<hibernate-mapping package="org.shop.domain">
+
+    <!--类名为User，表名也为User-->
+    <class name="Account"  table="account">
+
+        <!--主键映射，属性名为id，列名也为id-->
+        <id name="userId" column="userid">
+<!--            &lt;!&ndash;根据底层数据库主键自动增长&ndash;&gt;-->
+<!--            <generator class="native"/>-->
+        </id>
+
+        <!--非主键映射，属性和列名一一对应-->
+        <property name="password" column="password"/>
+        <property name="email" column="email"/>
+        <property name="firstName" column="firstname"/>
+        <property name="lastName" column="lastname"/>
+        <property name="status" column="status"/>
+        <property name="address1" column="addr1"/>
+        <property name="address2" column="addr2"/>
+        <property name="city" column="city"/>
+        <property name="state" column="state"/>
+        <property name="zip" column="zip"/>
+        <property name="country" column="country"/>
+        <property name="phone" column="phone"/>
+
+    </class>
+</hibernate-mapping>

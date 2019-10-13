@@ -1,0 +1,17 @@
+<hibernate-mapping package="org.shop.domain">
+
+    <!--类名为User，表名也为User-->
+    <class name="Category"  table="category">
+
+        <!--主键映射，属性名为id，列名也为id-->
+        <id name="categoryId" column="catid">
+            <!--            &lt;!&ndash;根据底层数据库主键自动增长&ndash;&gt;-->
+            <!--            <generator class="native"/>-->
+        </id>
+
+        <!--非主键映射，属性和列名一一对应-->
+        <property name="name" column="name"/>
+        <property name="description" column="descn"/>
+
+    </class>
+</hibernate-mapping>

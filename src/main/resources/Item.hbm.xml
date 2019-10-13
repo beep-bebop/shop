@@ -1,0 +1,26 @@
+<hibernate-mapping package="org.shop.domain">
+
+    <!--类名为User，表名也为User-->
+    <class name="Item"  table="item">
+
+        <!--主键映射，属性名为id，列名也为id-->
+        <id name="itemId" column="itemid">
+            <!--            &lt;!&ndash;根据底层数据库主键自动增长&ndash;&gt;-->
+            <!--            <generator class="native"/>-->
+        </id>
+
+        <!--非主键映射，属性和列名一一对应-->
+        <property name="productId" column="productid"/>
+        <property name="listPrice" column="listprice"/>
+        <property name="unitCost" column="unitcost"/>
+        <property name="status" column="status"/>
+        <property name="attribute1" column="attr1"/>
+        <property name="status" column="status"/>
+        <property name="attribute1" column="attr1"/>
+        <property name="attribute2" column="attr2"/>
+        <property name="attribute3" column="attr3"/>
+        <property name="attribute4" column="attr4"/>
+        <property name="attribute5" column="attr5"/>
+
+    </class>
+</hibernate-mapping>

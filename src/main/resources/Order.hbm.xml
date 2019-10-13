@@ -1,0 +1,39 @@
+<hibernate-mapping package="org.shop.domain">
+
+    <!--类名为User，表名也为User-->
+    <class name="Order"  table="orders">
+
+        <!--主键映射，属性名为id，列名也为id-->
+        <id name="orderId" column="orderid">
+            <!--            &lt;!&ndash;根据底层数据库主键自动增长&ndash;&gt;-->
+            <!--            <generator class="native"/>-->
+        </id>
+
+        <!--非主键映射，属性和列名一一对应-->
+        <property name="userId" column="userid"/>
+        <property name="orderDate" column="orderdate"/>
+        <property name="shipAddress1" column="shipaddr1"/>
+        <property name="shipAddress2" column="shipaddr2"/>
+        <property name="shipCity" column="shipcity"/>
+        <property name="shipState" column="shipstate"/>
+        <property name="shipCountry" column="shipcountry"/>
+        <property name="billAddress1" column="billaddr1"/>
+        <property name="billAddress2" column="billaddr2"/>
+        <property name="billCity" column="billcity"/>
+        <property name="billState" column="billstate"/>
+        <property name="billZip" column="billzip"/>
+        <property name="billCountry" column="billcountry"/>
+<!--        <property name="courier" column="courier"/>-->
+        <property name="totalPrice" column="totalprice"/>
+        <property name="billToFirstName" column="billtofirstname"/>
+        <property name="billToLastName" column="billtolastname"/>
+        <property name="shipToFirstName" column="shiptofirstname"/>
+        <property name="shipToLastName" column="shiptolastname"/>
+<!--        <property name="creditCard" column="creditcard"/>-->
+<!--        <property name="expiryDate" column="exprdate"/>-->
+<!--        <property name="cardType" column="cardtype"/>-->
+<!--        <property name="locale" column="local"/>-->
+
+
+    </class>
+</hibernate-mapping>

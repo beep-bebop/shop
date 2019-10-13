@@ -1,0 +1,19 @@
+<hibernate-mapping package="org.shop.domain">
+
+    <!--类名为User，表名也为User-->
+    <class name="LineItem"  table="lineitem">
+
+        <!--主键映射，属性名为id，列名也为id-->
+        <composite-id>
+            <!-- key-property标签表示哪一些属性对应复合主键 -->
+            <key-property name="orderId" column="orderid" type="string"></key-property>
+            <key-property name="lineNumber" column="linenum" type="string"></key-property>
+        </composite-id>
+
+        <!--非主键映射，属性和列名一一对应-->
+        <property name="itemId" column="itemid"/>
+        <property name="quantity" column="quantity"/>
+        <property name="unitPrice" column="unitprice"/>
+
+    </class>
+</hibernate-mapping>
