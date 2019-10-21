@@ -6,7 +6,8 @@
         <!--主键映射，属性名为id，列名也为id-->
         <id name="productId" column="productid">
         </id>
-
+        <one-to-one name="item" class="Item" property-ref="productId">
+        </one-to-one>
         <!--非主键映射，属性和列名一一对应-->
         <property name="categoryId" column="category"/>
         <property name="name" column="name"/>

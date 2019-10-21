@@ -5,8 +5,8 @@
 
         <!--主键映射，属性名为id，列名也为id-->
         <composite-id>
-            <key-property name="orderId" column="orderid"/>
-            <key-property name="lineNumber" column="linenum"/>
+            <key-property name="orderId" column="orderid" type="java.lang.Integer"/>
+            <key-property name="lineNumber" column="linenum" type="java.lang.Integer"/>
         </composite-id>
 
         <!--非主键映射，属性和列名一一对应-->

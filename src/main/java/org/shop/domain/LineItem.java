@@ -1,5 +1,6 @@
 package org.shop.domain;
 
+import javax.sound.sampled.Line;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -87,6 +88,31 @@ public class LineItem implements Serializable {
             total = null;
         }
     }
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + orderId;
+        result = prime * result + lineNumber;
+        return result;
+    }
 
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        LineItem other = (LineItem) obj;
+        if (!(orderId == other.orderId))
+            return false;
+        if (!(lineNumber == other.lineNumber))
+            return false;
+        return true;
+    }
 }
 

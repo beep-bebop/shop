@@ -52,15 +52,15 @@
 	</div>
 
 	<div id="QuickLinks">
-		<a href="category?categoryId=FISH"><img
+		<a href="viewCategory?categoryId=FISH"><img
 				src="../../images/sm_fish.gif" /></a> <img src="../../images/separator.gif" />
-		<a href="category?categoryId=DOGS"><img
+		<a href="viewCategory?categoryId=DOGS"><img
 				src="../../images/sm_dogs.gif" /></a> <img src="../../images/separator.gif" />
-		<a href="category?categoryId=REPTILES"><img
+		<a href="viewCategory?categoryId=REPTILES"><img
 				src="../../images/sm_reptiles.gif" /></a> <img
-			src="../../images/separator.gif" /> <a href="category?categoryId=CATS"><img
+			src="../../images/separator.gif" /> <a href="viewCategory?categoryId=CATS"><img
 			src="../../images/sm_cats.gif" /></a> <img src="../../images/separator.gif" />
-		<a href="category?categoryId=BIRDS"><img
+		<a href="viewCategory?categoryId=BIRDS"><img
 				src="../../images/sm_birds.gif" /></a>
 	</div>
 

@@ -11,10 +11,18 @@
     <servlet-name>MainServlet</servlet-name>
     <servlet-class>org.shop.servlets.MainServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ViewCategoryServlet</servlet-name>
+    <servlet-class>org.shop.servlets.viewCategoryServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>MainServlet</servlet-name>
     <url-pattern>/main</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ViewCategoryServlet</servlet-name>
+    <url-pattern>/viewCategory</url-pattern>
   </servlet-mapping>
 
 </web-app>

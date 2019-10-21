@@ -9,6 +9,15 @@ public class Product implements Serializable {
     private String categoryId;
     private String name;
     private String description;
+    private Item item;
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
 
     public String getProductId() {
         return productId;

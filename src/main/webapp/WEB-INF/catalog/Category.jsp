@@ -14,11 +14,13 @@
 			<th>Name</th>
 		</tr>
 		<!-- 循环 -->
+		<c:forEach var="product" items="${sessionScope.productList}">
 		<tr>
-			<td><a href="Product.jsp">FL-DLH-02</a>
+			<td><a href="Product.jsp">${product.productId}</a>
 			</td>
-			<td>Persian</td>
+			<td>${product.name}</td>
 		</tr>
+		</c:forEach>
 	</table>
 
 </div>

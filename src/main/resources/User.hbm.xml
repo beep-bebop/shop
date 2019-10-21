@@ -6,7 +6,6 @@
         <!--主键映射，属性名为id，列名也为id-->
         <id name="id" column="id">
             <!--根据底层数据库主键自动增长-->
-            <generator class="native"/>
 
         </id>
 
