@@ -5,9 +5,8 @@
 
         <!--主键映射，属性名为id，列名也为id-->
         <composite-id>
-            <!-- key-property标签表示哪一些属性对应复合主键 -->
-            <key-property name="orderId" column="orderid" type="string"></key-property>
-            <key-property name="lineNumber" column="linenum" type="string"></key-property>
+            <key-property name="orderId" column="orderid"/>
+            <key-property name="lineNumber" column="linenum"/>
         </composite-id>
 
         <!--非主键映射，属性和列名一一对应-->

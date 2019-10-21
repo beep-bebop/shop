@@ -1,6 +1,5 @@
 <hibernate-mapping package="org.shop.domain">
 
-    <!--类名为User，表名也为User-->
     <class name="Item"  table="item">
 
         <!--主键映射，属性名为id，列名也为id-->

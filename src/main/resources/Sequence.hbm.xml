@@ -1,0 +1,11 @@
+<hibernate-mapping package="org.shop.domain">
+    <class name="Sequence"  table="sequence">
+
+        <!--主键映射，属性名为id，列名也为id-->
+        <id name="name" column="name">
+        </id>
+
+        <!--非主键映射，属性和列名一一对应-->
+        <property name="nextid" column="nextid"/>
+    </class>
+</hibernate-mapping>
