@@ -18,8 +18,7 @@ public class OrderService {
         Transaction tx = session.beginTransaction();
         session.save(order);
         tx.commit();
-        session.close();
-
+        HibernateUtil.closeSession();
 
 
 //        orderMapper.insertOrderStatus(order);
@@ -61,7 +60,7 @@ public class OrderService {
         query.setParameter(0, username);
         List<Order> list=query.list();
         tx.commit();
-        session.close();
+        HibernateUtil.closeSession();
         return list;
     }
 

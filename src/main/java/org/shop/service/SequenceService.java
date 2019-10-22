@@ -20,6 +20,7 @@ public class SequenceService {
         dc.add(Restrictions.eq("nextid", sequence.getNextId()));
         Criteria c = dc.getExecutableCriteria(session);
         List<Sequence> list = c.list();
+        HibernateUtil.closeSession();
         if(list.size() == 0)
             return null;
         return list.get(0);
@@ -29,6 +30,6 @@ public class SequenceService {
         Transaction tx = session.beginTransaction();
         session.update(sequence);
         tx.commit();
-        session.close();
+        HibernateUtil.closeSession();
     }
 }

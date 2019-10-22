@@ -16,17 +16,17 @@ public class LineItemService {
         Transaction tx = session.beginTransaction();
         session.update(lineItem);
         tx.commit();
-        session.close();
+        HibernateUtil.closeSession();
     }
 
     public static List<LineItem> getLineItemsByOrderId(int orderId) {
         Session session=HibernateUtil.getSession();
         Transaction tx=session.beginTransaction();
-        Query query=session.createQuery("from LineItem lineitem where lineitem.orderId=?");
+        Query query=session.createQuery("from LineItem lineitem where lineitem.LineItemPK.orderId=?");
         query.setParameter(0, orderId);
         List<LineItem> list=query.list();
         tx.commit();
-        session.close();
+        HibernateUtil.closeSession();
         return list;
     }
 

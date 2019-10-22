@@ -4,9 +4,9 @@
     <class name="LineItem"  table="lineitem">
 
         <!--主键映射，属性名为id，列名也为id-->
-        <composite-id>
+        <composite-id name="LineItemPK" class="LineItemPK">
             <key-property name="orderId" column="orderid" type="java.lang.Integer"/>
-            <key-property name="lineNumber" column="linenum" type="java.lang.Integer"/>
+            <key-property name="lineNum" column="linenum" type="java.lang.Integer"/>
         </composite-id>
 
         <!--非主键映射，属性和列名一一对应-->

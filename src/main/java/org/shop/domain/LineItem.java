@@ -7,41 +7,52 @@ import java.math.BigDecimal;
 public class LineItem implements Serializable {
 
     private static final long serialVersionUID = 6804536240033522156L;
-
-    private int orderId;
-    private int lineNumber;
+    private LineItemPK LineItemPK;
+//    private int orderId;
+//    private int lineNumber;
     private int quantity;
     private String itemId;
     private BigDecimal unitPrice;
     private Item item;
     private BigDecimal total;
 
+    public void setOrderId(int id) {
+        LineItemPK.setOrderId(id);
+    }
+    public org.shop.domain.LineItemPK getLineItemPK() {
+        return LineItemPK;
+    }
+
+    public void setLineItemPK(org.shop.domain.LineItemPK lineItemPK) {
+        LineItemPK = lineItemPK;
+    }
+
     public LineItem() {
     }
 
     public LineItem(int lineNumber, CartItem cartItem) {
-        this.lineNumber = lineNumber;
+//        this.lineNumber = lineNumber;
         this.quantity = cartItem.getQuantity();
         this.itemId = cartItem.getItem().getItemId();
         this.unitPrice = cartItem.getItem().getListPrice();
         this.item = cartItem.getItem();
     }
 
-    public int getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
-    }
-
-    public int getLineNumber() {
-        return lineNumber;
-    }
-
-    public void setLineNumber(int lineNumber) {
-        this.lineNumber = lineNumber;
-    }
+//    public int getOrderId() {
+//        return orderId;
+//    }
+//
+//    public void setOrderId(int orderId) {
+//        this.orderId = orderId;
+//    }
+//
+//    public int getLineNumber() {
+//        return lineNumber;
+//    }
+//
+//    public void setLineNumber(int lineNumber) {
+//        this.lineNumber = lineNumber;
+//    }
 
     public String getItemId() {
         return itemId;
@@ -87,32 +98,6 @@ public class LineItem implements Serializable {
         } else {
             total = null;
         }
-    }
-    @Override
-    public int hashCode()
-    {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + orderId;
-        result = prime * result + lineNumber;
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj)
-    {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        LineItem other = (LineItem) obj;
-        if (!(orderId == other.orderId))
-            return false;
-        if (!(lineNumber == other.lineNumber))
-            return false;
-        return true;
     }
 }
 

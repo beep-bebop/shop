@@ -32,6 +32,7 @@ public class AccountService {
         }
         Criteria c = dc.getExecutableCriteria(session);
         List<Account> list = c.list();
+        HibernateUtil.closeSession();
         if(list.size() == 0)
             return null;
         return list.get(0);
@@ -42,7 +43,7 @@ public class AccountService {
         Transaction tx = session.beginTransaction();
         session.save(account);
         tx.commit();
-        session.close();
+        HibernateUtil.closeSession();
     }
 
     public void updateAccount(Account account) {
@@ -50,6 +51,6 @@ public class AccountService {
         Transaction tx = session.beginTransaction();
         session.update(account);
         tx.commit();
-        session.close();
+        HibernateUtil.closeSession();
     }
 }

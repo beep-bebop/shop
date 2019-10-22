@@ -21,11 +21,12 @@ public class CatalogService {
     }
 
     public Category getCategory(String categoryId) {
+
         Session session = HibernateUtil.getSession();
         Transaction ts = session.beginTransaction();
         Category category = (Category)session.get(Category.class,categoryId);
         ts.commit();
-        HibernateUtil.closeSession();
+        HibernateUtil.closeSession();;
         return category;
     }
 
@@ -39,10 +40,12 @@ public class CatalogService {
     }
 
     public List<Product> getProductListByCategory(String categoryId) {
-        Session session = HibernateUtil.getSession();
-        Transaction ts = session.beginTransaction();
-        List<Product> list = session.createQuery("from Product ").list();
-        ts.commit();
+        Session session=HibernateUtil.getSession();
+        Transaction tx=session.beginTransaction();
+        Query query=session.createQuery("from Product product where product.categoryId=?");
+        query.setParameter(0, categoryId);
+        List<Product> list=query.list();
+        tx.commit();
         HibernateUtil.closeSession();
         return list;
     }
@@ -59,6 +62,7 @@ public class CatalogService {
         }
         Query query = session.createQuery(hql);
         List list = query.list();
+        HibernateUtil.closeSession();
         return list;
     }
 
@@ -69,7 +73,7 @@ public class CatalogService {
         query.setParameter(0, productId);
         List<Item> list=query.list();
         tx.commit();
-        session.close();
+        HibernateUtil.closeSession();
         return list;
     }
 

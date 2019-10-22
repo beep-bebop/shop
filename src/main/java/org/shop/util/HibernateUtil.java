@@ -1,9 +1,6 @@
 package org.shop.util;
 
 import org.hibernate.*;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.*;
 public class HibernateUtil
 {
@@ -37,24 +34,26 @@ public class HibernateUtil
         return sessionFactory;//返回SessionFactory的对象
 
     }
-    public static final ThreadLocal<Session> session = new ThreadLocal<Session>();
+    private static ThreadLocal<Session> threadLocal = new ThreadLocal<Session>() ;
 
-    public static Session getSession() throws HibernateException{
-        Session s = session.get();
-        // 如果该线程还没有Session,则创建一个新的Session
-        if (s == null){
-            s = sessionFactory.openSession();
-            // 将获得的Session变量存储在ThreadLocal变量session里
-            session.set(s);
+    public static Session getSession(){
+        Session session = (Session) threadLocal.get();
+        if( session == null || !session.isOpen() ){
+            if( sessionFactory == null ){
+                buildSessionFactory();
+            }
+            session = sessionFactory.openSession() ;
+            threadLocal.set(session);
         }
-        return s;
+        return session ;
     }
 
     public static void closeSession() throws HibernateException{
-        Session s = session.get();
-        if (s != null)
-            s.close();
-        session.set(null);
+        Session session = threadLocal.get() ;
+        threadLocal.set(null);
+        if( session != null && session.isOpen()){
+            session.close() ;
+        }
     }
 
 }
