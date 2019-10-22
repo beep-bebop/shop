@@ -7,9 +7,10 @@
             <!--            &lt;!&ndash;根据底层数据库主键自动增长&ndash;&gt;-->
             <!--            <generator class="native"/>-->
         </id>
-        <one-to-many name="product" class="org.shop.domain.Product" column="productid" >
-        </one-to-many>
-        <!--非主键映射，属性和列名一一对应-->
+<!--        <one-to-many name="product" class="org.shop.domain.Product" column="productid" >-->
+<!--        </one-to-many>-->
+<!--        &lt;!&ndash;非主键映射，属性和列名一一对应&ndash;&gt;-->
+        <property name="productId" column="productid"/>
         <property name="listPrice" column="listprice"/>
         <property name="unitCost" column="unitcost"/>
         <property name="status" column="status"/>

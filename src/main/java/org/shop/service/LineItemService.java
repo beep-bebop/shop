@@ -22,7 +22,7 @@ public class LineItemService {
     public static List<LineItem> getLineItemsByOrderId(int orderId) {
         Session session=HibernateUtil.getSession();
         Transaction tx=session.beginTransaction();
-        Query query=session.createQuery("from LineItem lineitem where lineitem.LineItemPK.orderId=?");
+        Query query=session.createQuery("from LineItem lineitem where lineitem.LineItemPK.orderId=?0");
         query.setParameter(0, orderId);
         List<LineItem> list=query.list();
         tx.commit();

@@ -56,7 +56,7 @@ public class OrderService {
     public List<Order> getOrdersByUsername(String username) {
         Session session=HibernateUtil.getSession();
         Transaction tx=session.beginTransaction();
-        Query query=session.createQuery("from Order order where order.userId=?");
+        Query query=session.createQuery("from Order order where order.userId=?0");
         query.setParameter(0, username);
         List<Order> list=query.list();
         tx.commit();

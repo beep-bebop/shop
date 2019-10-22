@@ -42,7 +42,7 @@ public class CatalogService {
     public List<Product> getProductListByCategory(String categoryId) {
         Session session=HibernateUtil.getSession();
         Transaction tx=session.beginTransaction();
-        Query query=session.createQuery("from Product product where product.categoryId=?");
+        Query query=session.createQuery("from Product product where product.categoryId=?0");
         query.setParameter(0, categoryId);
         List<Product> list=query.list();
         tx.commit();
@@ -69,7 +69,7 @@ public class CatalogService {
     public List<Item> getItemListByProduct(String productId) {
         Session session=HibernateUtil.getSession();
         Transaction tx=session.beginTransaction();
-        Query query=session.createQuery("from Item item where item.productId=?");
+        Query query=session.createQuery("from Item item where item.productId=?0");
         query.setParameter(0, productId);
         List<Item> list=query.list();
         tx.commit();
