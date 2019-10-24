@@ -11,9 +11,9 @@ public class App {
 
         //创建对象
         User user = new User();
-        user.setPassword("123");
-        user.setCellphone("122222");
-        user.setUsername("test");
+        user.setPassword("111");
+        user.setCellphone("111");
+        user.setUsername("give me the fucking success");
 
         Session session = HibernateUtil.getSession();
         Transaction tx = session.beginTransaction();
