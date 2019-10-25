@@ -10,7 +10,7 @@
 <meta name="generator"
 	content="HTML Tidy for Linux/x86 (vers 1st November 2002), see www.w3.org" />
 <title>JPetStore Demo</title>
-<meta content="text/html; charset=windows-1252"
+<meta content="text/html; charset=UTF-8"
 	http-equiv="Content-Type" />
 <meta http-equiv="Cache-Control" content="max-age=0" />
 <meta http-equiv="Cache-Control" content="no-cache" />
@@ -18,7 +18,7 @@
 <meta http-equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="Pragma" content="no-cache" />
 </head>
-
+<script src="../../js/vue.js"></script>
 <body>
 
 	<div id="Header">
@@ -68,19 +68,32 @@
 	<div id="Content">
 
 <div id="BackLink">
-	<a href="../catalog/Main.html">Return to Main Menu</a>
+	<a href="/main">Return to Main Menu</a>
 </div>
 
 <div id="Catalog">
 
 	<h2>category name</h2>
 
-	<table>
+	<table id="table">
 		<tr>
 			<th>Product ID</th>
 			<th>Name</th>
 		</tr>
 		<!-- 循环 -->
+		<tr v-for="product in products">
+			<td v-text="product.category"></td>
+			<td v-text="product.name"></td>
+		</tr>
+
+
+<!--		<ul id="example-1">-->
+<!--			<li v-for="item in items">-->
+<!--				{{ item.message }}-->
+<!--			</li>-->
+<!--		</ul>-->
+
+		<script src="../../js/get-product-list.js"></script>
 		<tr>
 			<td><a href="Product.html">FL-DLH-02</a>
 			</td>

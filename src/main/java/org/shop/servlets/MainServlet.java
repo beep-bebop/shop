@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class MainServlet extends javax.servlet.http.HttpServlet{
-    private static final String MAIN ="/WEB-INF/catalog/Main.jsp";
+    private static final String MAIN ="/WEB-INF/catalog/Main.html";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
