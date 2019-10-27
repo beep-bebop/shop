@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 public class viewCategoryServlet extends HttpServlet {
-    private static final String VIEW_CATEGORY = "/WEB-INF/catalog/Category.html";
+    private static final String VIEW_CATEGORY = "/WEB-INF/catalog/Category.jsp";
     private  String categoryId;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

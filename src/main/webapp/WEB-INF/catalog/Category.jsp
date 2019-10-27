@@ -1,25 +1,29 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
 <div id="BackLink">
-	<a href="../catalog/Main.html">Return to Main Menu</a>
+    <a href="main">Return to Main Menu</a>
 </div>
 
 <div id="Catalog">
 
-	<h2>category name</h2>
+<h2>${sessionScope.category.name}</h2>
 
-	<table>
+<table>
+	<tr>
+		<th>Product ID</th>
+		<th>Name</th>
+	</tr>
+	<c:forEach var="product" items="${sessionScope.productList}">
 		<tr>
-			<th>Product ID</th>
-			<th>Name</th>
-		</tr>
-		<!-- å¾ªçŽ¯ -->
-		<tr>
-			<td><a href="Product.html">FL-DLH-02</a>
+			<td>
+			     <a href="viewProduct?productId=${product.productId}">${product.productId}</a>
 			</td>
-			<td>Persian</td>
+			<td>
+				${product.name}
+			</td>
 		</tr>
-	</table>
+	</c:forEach>
+</table>
 
 </div>
 
