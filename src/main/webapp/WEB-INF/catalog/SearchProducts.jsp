@@ -1,9 +1,8 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
-<div id="BackLink"><stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean">
-	Return to Main Menu
-</stripes:link></div>
+<div id="BackLink">
+	<a href="main">Return to Main Menu</a>
+</div>
 
 <div id="Catalog">
 
@@ -13,20 +12,14 @@
 		<th>Product ID</th>
 		<th>Name</th>
 	</tr>
-	<c:forEach var="product" items="${actionBean.productList}">
+	<c:forEach var="product" items="${sessionScope.productList}">
 		<tr>
-			<td><stripes:link
-				beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"
-				event="viewProduct">
-				<stripes:param name="productId" value="${product.productId}" />
-				${product.description}
-			</stripes:link></td>
-			<td><b> <stripes:link
-				beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"
-				event="viewProduct">
-				<stripes:param name="productId" value="${product.productId}" />
-				<font color="BLACK"> ${product.productId} </font>
-			</stripes:link> </b></td>
+			<td>
+				<a href="viewProduct?productId=${product.productId}">${product.description}</a>
+			</td>
+			<td><b>
+				<a href="viewProduct?productId=${product.productId}">${product.productId}</a>
+			</b></td>
 			<td>${product.name}</td>
 		</tr>
 	</c:forEach>

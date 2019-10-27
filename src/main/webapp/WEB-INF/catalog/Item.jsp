@@ -1,49 +1,49 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
-<div id="BackLink"><stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"
-	event="viewProduct">
-	<stripes:param name="productId" value="${actionBean.product.productId}" />
-	Return to ${actionBean.product.productId}
-</stripes:link></div>
+<div id="BackLink">
+    <a href="viewProduct?productId=${sessionScope.product.productId}">Return to ${sessionScope.product.productId}</a>
+</div>
 
 <div id="Catalog">
 
 <table>
 	<tr>
-		<td>${actionBean.product.description}</td>
+		<td>${sessionScope.product.description}</td>
 	</tr>
 	<tr>
-		<td><b> ${actionBean.item.itemId} </b></td>
+		<td><b> ${sessionScope.item.itemId} </b></td>
 	</tr>
 	<tr>
-		<td><b><font size="4"> ${actionBean.item.attribute1}
-		${actionBean.item.attribute2} ${actionBean.item.attribute3}
-		${actionBean.item.attribute4} ${actionBean.item.attribute5}
-		${actionBean.product.name} </font></b></td>
+		<td><b><font size="4">
+			${sessionScope.item.attribute1}
+			${sessionScope.item.attribute2}
+			${sessionScope.item.attribute3}
+			${sessionScope.item.attribute4}
+			${sessionScope.item.attribute5}
+			${sessionScope.product.name}
+		</font></b></td>
 	</tr>
 	<tr>
-		<td>${actionBean.product.name}</td>
+		<td>${sessionScope.product.name}</td>
 	</tr>
 	<tr>
-		<td><c:if test="${actionBean.item.quantity <= 0}">
+		<td><c:if test="${sessionScope.item.quantity <= 0}">
         Back ordered.
-      </c:if> <c:if test="${actionBean.item.quantity > 0}">
-      	${actionBean.item.quantity} in stock.
+      </c:if> <c:if test="${sessionScope.item.quantity > 0}">
+      	${sessionScope.item.quantity} in stock.
 	  </c:if></td>
 	</tr>
 	<tr>
-		<td><fmt:formatNumber value="${actionBean.item.listPrice}"
-			pattern="$#,##0.00" /></td>
+		<td>
+			<fmt:formatNumber value="${sessionScope.item.listPrice}"
+			pattern="$#,##0.00" />
+		</td>
 	</tr>
 
 	<tr>
-		<td><stripes:link class="Button"
-			beanclass="org.mybatis.jpetstore.web.actions.CartActionBean"
-			event="addItemToCart">
-			<stripes:param name="workingItemId" value="${actionBean.item.itemId}" />
-       	Add to Cart
-       </stripes:link></td>
+		<td>
+		   <a class="Button" href="addItemToCart?workingItemId=${item.itemId}">Add to Cart</a>
+		</td>
 	</tr>
 </table>
 

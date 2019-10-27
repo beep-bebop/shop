@@ -1,8 +1,8 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
-<div id="BackLink"><stripes:link
-	beanclass="org.mybatis.jpetstore.web.actions.CartActionBean">
-	Return to Shopping Cart</stripes:link></div>
+<div id="BackLink">
+	<a href="viewCart">Return to Shopping Cart</a>
+</div>
 
 <div id="Catalog">
 
@@ -23,29 +23,33 @@
 				<td><b>Total Cost</b></td>
 			</tr>
 
-			<c:forEach var="cartItem" items="${actionBean.cart.cartItems}">
+			<c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
 				<tr>
-					<td><stripes:link
-						beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"
-						event="viewItem">
-						<stripes:param name="itemId" value="${cartItem.item.itemId}" />
-				  ${cartItem.item.itemId}
-			    </stripes:link></td>
-					<td>${cartItem.item.product.productId}</td>
-					<td>${cartItem.item.attribute1} ${cartItem.item.attribute2}
-					${cartItem.item.attribute3} ${cartItem.item.attribute4}
-					${cartItem.item.attribute5} ${cartItem.item.product.name}</td>
+					<td>
+						<a href="viewItem?itemId=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
+					</td>
+					<td>
+						${cartItem.item.product.productId}
+					</td>
+					<td>
+						${cartItem.item.attribute1} ${cartItem.item.attribute2}
+					    ${cartItem.item.attribute3} ${cartItem.item.attribute4}
+						${cartItem.item.attribute5} ${cartItem.item.product.name}
+					</td>
 					<td>${cartItem.inStock}</td>
 					<td>${cartItem.quantity}</td>
-					<td><fmt:formatNumber value="${cartItem.item.listPrice}"
-						pattern="$#,##0.00" /></td>
-					<td><fmt:formatNumber value="${cartItem.total}"
-						pattern="$#,##0.00" /></td>
+					<td>
+						<fmt:formatNumber value="${cartItem.item.listPrice}" pattern="$#,##0.00" />
+					</td>
+					<td>
+						<fmt:formatNumber value="${cartItem.total}" pattern="$#,##0.00" />
+					</td>
 				</tr>
 			</c:forEach>
 			<tr>
-				<td colspan="7">Sub Total: <fmt:formatNumber
-					value="${actionBean.cart.subTotal}" pattern="$#,##0.00" /></td>
+				<td colspan="7">
+					Sub Total: <fmt:formatNumber value="${sessionScope.cart.subTotal}" pattern="$#,##0.00" />
+				</td>
 			</tr>
 		</table>
 

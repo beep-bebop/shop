@@ -84,6 +84,7 @@
     <dependency>
       <groupId>net.sf.json-lib</groupId>
       <artifactId>json-lib</artifactId>
+<<<<<<< HEAD
       <version>2.4</version>
       <type>pom</type>
     </dependency>
@@ -92,6 +93,10 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.17</version>
       <type>pom</type>
+=======
+      <version>2.3</version>
+      <classifier>jdk15</classifier>
+>>>>>>> d5fc802c42f92ff12df248010d287c3f79891c6e
     </dependency>
   </dependencies>
 
