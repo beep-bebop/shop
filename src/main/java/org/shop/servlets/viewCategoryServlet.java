@@ -16,42 +16,40 @@ import javax.servlet.http.HttpSession;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
+
 
 public class viewCategoryServlet extends HttpServlet {
     private static final String VIEW_CATEGORY = "/WEB-INF/catalog/Category.jsp";
-    private Collection categoryId;
+    private String categoryId;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(req.getInputStream(),"utf-8"));
-        String line = null;
-        StringBuilder sb = new StringBuilder();
-        while ((line = br.readLine()) != null) {
-            sb.append(line);
-        }
-        //将json字符串转换为json对象
-        JSONObject json=JSONObject.fromObject(sb.toString());
+        categoryId=req.getParameter("categoryId");
 
-        categoryId = json.getString(key);
-
-
-//        categoryId = req.getParameter("categoryId");
         CatalogService service = new CatalogService();
         Category category = service.getCategory(categoryId);
         List<Product> productList = service.getProductListByCategory(categoryId);
-//        JSONArray jsonList=JSONArray.fromObject(productList);
-//        System.out.println(jsonList);
-//        //将list转换为json对象
-//        String jsonStr="{'userVO':"+jsonList.toString()+"}";
-//        PrintWriter out = resp.getWriter();
-//        out.print(jsonStr);
-//        out.flush();
-//        out.close();
-//        req.getRequestDispatcher(VIEW_CATEGORY).forward(req,resp);
-        //保存数据
+        JSONArray jsonList=JSONArray.fromObject(productList);
+        System.out.println(jsonList);
+        //将list转换为json对象
+        String jsonStr="{'productList':"+jsonList.toString()+"}";
+        PrintWriter out = resp.getWriter();
+        out.print(jsonStr);
+        out.flush();
+        out.close();
+//        BufferedReader br = new BufferedReader(new InputStreamReader(req.getInputStream(),"utf-8"));
+//        String line = null;
+//        StringBuilder sb = new StringBuilder();
+//        while ((line = br.readLine()) != null) {
+//            sb.append(line);
+//        }
+//        categoryId = new String(sb);
+//        //将json字符串转换为json对象
+//        JSONObject json=JSONObject.fromObject(sb.toString());
+
         HttpSession session = req.getSession();
         session.setAttribute("category", category);
         session.setAttribute("productList", productList);
@@ -59,15 +57,15 @@ public class viewCategoryServlet extends HttpServlet {
         //HttpSession session = request.getSession();
         Account account = (Account)session.getAttribute("account");
 
-        if(account != null){
-            HttpServletRequest httpRequest= req;
-            String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
-                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-
+//        if(account != null){
+//            HttpServletRequest httpRequest= req;
+//            String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
+//                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+//
 //            LogService logService = new LogService();
 //            String logInfo = logService.logInfo(" ") + strBackUrl + " 跳转到商品种类 " + category;
-//            logService.insertLogInfo(account.getUsername(), logInfo);
-        }
+//            logService.insertLogInfo(account.getUserId(), logInfo);
+//        }
 
         //跳转页面
         req.getRequestDispatcher(VIEW_CATEGORY).forward(req, resp);
