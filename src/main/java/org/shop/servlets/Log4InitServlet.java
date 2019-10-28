@@ -15,7 +15,7 @@ public class Log4InitServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        System.setProperty("logPath", "C://Documents and Settings//jl60155//webIVR-workspace//ScriptMaint-WebVersion//logs//myLog.log");
+        System.setProperty("logPath", "C://Users//魏方圆//Desktop//myLog.log");
         System.err.println("Log4j Servlet test Path: " + System.getProperty("logPath"));
 
         //PropertyConfigurator.configure(getServletContext().getRealPath("/") + getInitParameter("configfile"));

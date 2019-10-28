@@ -35,5 +35,6 @@
     <mapping resource="LineItem.hbm.xml"/>
     <mapping resource="Order.hbm.xml"/>
     <mapping resource="Product.hbm.xml"/>
+    <mapping resource="Sequence.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -61,6 +61,7 @@ public class SaveAccountServlet extends HttpServlet {
         account.setBannerOption(Boolean.parseBoolean(bannerOption));
 
         accountService = new AccountService();
+        System.out.println("baobbbbb存账户"+account.getUserId()+account.getFirstName());
         accountService.updateAccount(account);
 
         session.setAttribute("account", account);

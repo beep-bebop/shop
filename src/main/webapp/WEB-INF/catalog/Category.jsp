@@ -7,7 +7,6 @@
 <div id="Catalog">
 
 <h2>${sessionScope.category.name}</h2>
-
 <table>
 	<tr>
 		<th>Product ID</th>
@@ -16,10 +15,10 @@
 	<c:forEach var="product" items="${sessionScope.productList}">
 		<tr>
 			<td>
-			     <a href="viewProduct?productId=${product.productId}">${product.productId}</a>
+			     <a href="viewProduct?productId=${product.getProductId()}">${product.getProductId()}</a>
 			</td>
 			<td>
-				${product.name}
+				${product.getName()}
 			</td>
 		</tr>
 	</c:forEach>

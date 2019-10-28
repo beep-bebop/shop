@@ -1,8 +1,14 @@
 package org.shop.domain;
 
-public class Sequence {
+import java.io.Serializable;
+
+public class Sequence implements Serializable {
     private String name;
     private int nextid;
+
+    public Sequence() {
+
+    }
 
     public int getNextid() {
         return nextid;

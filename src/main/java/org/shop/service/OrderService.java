@@ -3,10 +3,12 @@ package org.shop.service;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.hibernate.tool.schema.extract.internal.SequenceNameExtractorImpl;
 import org.shop.domain.*;
 import org.shop.util.HibernateUtil;
 
 import javax.transaction.Transactional;
+import java.io.SequenceInputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,8 +58,8 @@ public class OrderService {
     public List<Order> getOrdersByUsername(String username) {
         Session session=HibernateUtil.getSession();
         Transaction tx=session.beginTransaction();
-        Query query=session.createQuery("from Order order where order.userId=?0");
-        query.setParameter(0, username);
+        Query query=session.createQuery("from Order order where order.userId=?1");
+        query.setParameter(1, username);
         List<Order> list=query.list();
         tx.commit();
         HibernateUtil.closeSession();
@@ -65,13 +67,9 @@ public class OrderService {
     }
 
     public int getNextId(String name) {
-        Sequence sequence = new Sequence(name, -1);
-        sequence = (Sequence) SequenceService.getSequence(sequence);
-        if (sequence == null) {
-            throw new RuntimeException("Error: A null sequence was returned from the database (could not get next " + name
-                    + " sequence).");
-        }
+        Sequence sequence = SequenceService.getSequence(name);
         Sequence parameterObject = new Sequence(name, sequence.getNextId() + 1);
+        System.out.println("aaaaaaaaaa"+sequence.getName()+parameterObject.getNextid());
         SequenceService.updateSequence(parameterObject);
         return sequence.getNextId();
     }

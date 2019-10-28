@@ -1,6 +1,7 @@
 package org.shop.servlets;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.shop.domain.Account;
 import org.shop.domain.Category;
 import org.shop.domain.Product;
@@ -12,16 +13,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 public class viewCategoryServlet extends HttpServlet {
     private static final String VIEW_CATEGORY = "/WEB-INF/catalog/Category.jsp";
-    private  String categoryId;
+    private Collection categoryId;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        categoryId = req.getParameter("categoryId");
+        BufferedReader br = new BufferedReader(new InputStreamReader(req.getInputStream(),"utf-8"));
+        String line = null;
+        StringBuilder sb = new StringBuilder();
+        while ((line = br.readLine()) != null) {
+            sb.append(line);
+        }
+        //将json字符串转换为json对象
+        JSONObject json=JSONObject.fromObject(sb.toString());
+
+        categoryId = json.getString(key);
+
+
+//        categoryId = req.getParameter("categoryId");
         CatalogService service = new CatalogService();
         Category category = service.getCategory(categoryId);
         List<Product> productList = service.getProductListByCategory(categoryId);

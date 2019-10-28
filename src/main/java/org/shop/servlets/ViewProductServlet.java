@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class ViewProductServlet extends HttpServlet {
-    private static final String VIEW_PRODUCT = "/WEB-INF/jsp/catalog/Product.jsp";
+    private static final String VIEW_PRODUCT = "/WEB-INF/catalog/Product.jsp";
     private String productId;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

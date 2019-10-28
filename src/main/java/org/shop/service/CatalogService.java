@@ -36,7 +36,7 @@ public class CatalogService {
         Transaction ts = session.beginTransaction();
         Product product = (Product) session.get(Product.class,productId);
         ts.commit();
-        System.out.println(product.getProductId());
+        System.out.println("catalogservice"+product.getProductId());
         HibernateUtil.closeSession();
         return product;
     }
