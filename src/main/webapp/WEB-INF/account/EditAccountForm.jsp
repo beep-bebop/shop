@@ -7,7 +7,9 @@
 	<table>
 		<tr>
 			<td>User ID:</td>
-			<td>${sessionScope.account.username}</td>
+<%--			<td>${sessionScope.account.username}</td>--%>
+			//这里用框架实现上一句的功能
+			<td>a</td>
 		</tr>
 		<tr>
 			<td>New password:</td>
@@ -23,7 +25,9 @@
 
 </form>
 	<!--event="listOrders-->
-	<a href="viewListOrder?username=${sessionScope.account.username}">My Orders</a>
+<%--	<a href="viewListOrder?username=${sessionScope.account.username}">My Orders</a>--%>
+	//这里用框架实现上一句的功能
+	<a href="viewListOrder?username=a">My Orders</a>
 </div>
 
 <%@ include file="../common/IncludeBottom.jsp"%>

@@ -12,8 +12,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class SignOnServlet extends HttpServlet {
-    private static final String MAIN = "/WEB-INF/jsp/catalog/Main.jsp";
-    private static final String SIGNONFORM = "/WEB-INF/jsp/account/SignonForm.jsp";
+    private static final String MAIN = "/WEB-INF/catalog/Main.jsp";
+    private static final String SIGNONFORM = "/WEB-INF/account/SignonForm.jsp";
 
     private Account account;
     private AccountService accountService;

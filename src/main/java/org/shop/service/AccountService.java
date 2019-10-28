@@ -6,7 +6,6 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.shop.domain.Account;
-import org.shop.domain.User;
 import org.shop.util.HibernateUtil;
 
 import java.util.List;
@@ -23,7 +22,7 @@ public class AccountService {
 
     public Account getAccount(String username, String password) {
         Session session = HibernateUtil.getSession();
-        DetachedCriteria dc = DetachedCriteria.forClass(User.class);
+        DetachedCriteria dc = DetachedCriteria.forClass(Account.class);
         if (username != null) {
             dc.add(Restrictions.eq("userId",username));
         }

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class ViewItemServlet extends HttpServlet {
-    private static final String VIEW_ITEM = "/WEB-INF/jsp/catalog/Item.jsp";
+    private static final String VIEW_ITEM = "/WEB-INF/catalog/Item.jsp";
     private String itemId;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

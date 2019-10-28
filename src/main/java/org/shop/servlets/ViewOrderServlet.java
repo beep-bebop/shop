@@ -14,8 +14,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class ViewOrderServlet extends HttpServlet {
-    private static final String VIEWORDER = "/WEB-INF/jsp/order/ViewOrder.jsp";
-    private static final String ERROR = "/WEB-INF/jsp/common/Error.jsp";
+    private static final String VIEWORDER = "/WEB-INF/order/ViewOrder.jsp";
+    private static final String ERROR = "/WEB-INF/common/Error.jsp";
 
     private Order order;
     private OrderService orderService;

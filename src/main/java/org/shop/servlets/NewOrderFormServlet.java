@@ -13,8 +13,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class NewOrderFormServlet extends HttpServlet {
-    private static final String NEW_ORDER = "/WEB-INF/jsp/order/NewOrderForm.jsp";
-    private static final String SIGNONFORM = "/WEB-INF/jsp/account/SignonForm.jsp";
+    private static final String NEW_ORDER = "/WEB-INF/order/NewOrderForm.jsp";
+    private static final String SIGNONFORM = "/WEB-INF/account/SignonForm.jsp";
     private static final String ERROR = "/WEB-INF/jsp/common/Error.jsp";
 
     private Account account;

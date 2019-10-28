@@ -16,7 +16,7 @@ import java.io.IOException;
 public class AddItemToCartServlet extends HttpServlet {
     //Servlet的功能即负责中转
     //1.处理完请求后的跳转页面
-    private static final String VIEW_CART = "/WEB-INF/jsp/cart/Cart.jsp";
+    private static final String VIEW_CART = "/WEB-INF/cart/Cart.jsp";
 
     //2.定义处理该请求所需要的数据
     private String workingItemId;

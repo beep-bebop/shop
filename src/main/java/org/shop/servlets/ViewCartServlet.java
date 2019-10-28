@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class ViewCartServlet extends HttpServlet {
-    private static final String VIEW_CART = "/WEB-INF/jsp/cart/Cart.jsp";
+    private static final String VIEW_CART = "/WEB-INF/cart/Cart.jsp";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);

@@ -16,7 +16,7 @@ import java.util.Iterator;
 
 public class UpdateCartQuantitiesServlet extends HttpServlet {
 
-    private static final String VIEW_CART = "/WEB-INF/jsp/cart/Cart.jsp";
+    private static final String VIEW_CART = "/WEB-INF/cart/Cart.jsp";
 
     private String workingItemId;
     private Cart cart;

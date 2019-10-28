@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class EditAccountServlet extends HttpServlet {
 
-    private static final String EDITACOUNT = "/WEB-INF/jsp/account/EditAccountForm.jsp";
+    private static final String EDITACOUNT = "/WEB-INF/account/EditAccountForm.jsp";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);

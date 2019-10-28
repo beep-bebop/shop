@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ViewListOrderServlet extends HttpServlet {
-    private static final String VIEWLISTORDER = "/WEB-INF/jsp/order/ListOrders.jsp";
+    private static final String VIEWLISTORDER = "/WEB-INF/order/ListOrders.jsp";
 
     private String username;
     private OrderService orderService;

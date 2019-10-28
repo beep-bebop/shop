@@ -40,9 +40,9 @@ public class ViewProductServlet extends HttpServlet {
             String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
                     + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
 
-            LogService logService = new LogService();
-            String logInfo = logService.logInfo(" ") + strBackUrl + " 查看产品 " + product;
-            logService.insertLogInfo(account.getUserId(), logInfo);
+//            LogService logService = new LogService();
+//            String logInfo = logService.logInfo(" ") + strBackUrl + " 查看产品 " + product;
+//            logService.insertLogInfo(account.getUserId(), logInfo);
         }
 
         request.getRequestDispatcher(VIEW_PRODUCT).forward(request, response);

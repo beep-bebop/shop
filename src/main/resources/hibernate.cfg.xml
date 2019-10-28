@@ -28,7 +28,6 @@
     <!--  根据需要创建数据库  -->
     <property name="hbm2ddl.auto">update</property>
 
-    <mapping resource="User.hbm.xml"/>
     <mapping resource="Account.hbm.xml"/>
     <mapping resource="Category.hbm.xml"/>
     <mapping resource="Inventory.hbm.xml"/>

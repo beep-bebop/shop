@@ -11,8 +11,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class ShippingFormServlet extends HttpServlet {
-    private static final String SHIPPINGFORM = "/WEB-INF/jsp/order/ShippingForm.jsp";
-    private static final String SIGNONFORM = "/WEB-INF/jsp/account/SignonForm.jsp";
+    private static final String SHIPPINGFORM = "/WEB-INF/order/ShippingForm.jsp";
+    private static final String SIGNONFORM = "/WEB-INF/account/SignonForm.jsp";
 
     private Account account;
 

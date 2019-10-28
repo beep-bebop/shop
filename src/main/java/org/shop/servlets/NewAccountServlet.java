@@ -12,8 +12,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class NewAccountServlet extends HttpServlet {
-    private static final String MAIN = "/WEB-INF/jsp/catalog/Main.jsp";
-    private static final String NEWACCOUNTFORM = "/WEB-INF/jsp/account/NewAccountForm.jsp";
+    private static final String MAIN = "/WEB-INF/catalog/Main.jsp";
+    private static final String NEWACCOUNTFORM = "/WEB-INF/account/NewAccountForm.jsp";
 
     private Account account;
     private Account account1;

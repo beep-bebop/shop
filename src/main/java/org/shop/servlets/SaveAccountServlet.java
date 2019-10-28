@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class SaveAccountServlet extends HttpServlet {
 
-    private static final String EDITACOUNT = "/WEB-INF/jsp/account/EditAccountForm.jsp";
+    private static final String EDITACOUNT = "/WEB-INF/account/EditAccountForm.jsp";
 
     private Account account;
     private AccountService accountService;

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class JPetStoreDemoServlet extends HttpServlet {
-    private static final String JPETSTOREDEMO = "/WEB-INF/jsp/common/JPetStoreDemo.html";
+    private static final String JPETSTOREDEMO = "/help.html";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);

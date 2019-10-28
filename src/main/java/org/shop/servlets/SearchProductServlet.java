@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class SearchProductServlet extends HttpServlet {
-    private static final String SEARCH_PRODUCTS = "/WEB-INF/jsp/catalog/SearchProducts.jsp";
+    private static final String SEARCH_PRODUCTS = "/WEB-INF/catalog/SearchProducts.jsp";
 
     private String keyword;
 

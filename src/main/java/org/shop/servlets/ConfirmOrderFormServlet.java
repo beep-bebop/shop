@@ -13,8 +13,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class ConfirmOrderFormServlet extends HttpServlet {
-    private static final String CONFIRM_ORDER_FORM = "/WEB-INF/jsp/order/ConfirmOrder.jsp";
-    private static final String SHIPPINGFORM = "/WEB-INF/jsp/order/ShippingForm.jsp";
+    private static final String CONFIRM_ORDER_FORM = "/WEB-INF/order/ConfirmOrder.jsp";
+    private static final String SHIPPINGFORM = "/WEB-INF/order/ShippingForm.jsp";
 
     private String shippingAddressRequired;
     private Order order;

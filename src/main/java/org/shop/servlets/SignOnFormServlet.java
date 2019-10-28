@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class SignOnFormServlet extends HttpServlet {
 
-    private static final String SIGNONFORM = "/WEB-INF/jsp/account/SignonForm.jsp";
+    private static final String SIGNONFORM = "/WEB-INF/account/SignonForm.jsp";
 
     private Account account;
 
