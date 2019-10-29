@@ -22,7 +22,7 @@
 				<a href="viewItem?itemId=${item.itemId}">${item.itemId}</a>
 			</td>
 			<td>
-				${item.product.productId}
+				${sessionScope.product.getProductId()}
 			</td>
 			<td>
 				${item.attribute1}

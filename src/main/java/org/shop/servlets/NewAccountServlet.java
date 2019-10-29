@@ -15,7 +15,6 @@ public class NewAccountServlet extends HttpServlet {
     private static final String MAIN = "/WEB-INF/catalog/Main.jsp";
     private static final String NEWACCOUNTFORM = "/WEB-INF/account/NewAccountForm.jsp";
 
-    private Account account;
     private Account account1;
     private AccountService accountService;
 
@@ -25,9 +24,9 @@ public class NewAccountServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        account = (Account) session.getAttribute("account");
-        account = null;
-        session.setAttribute("account", account);
+//        account = (Account) session.getAttribute("account");
+//        account = null;
+//        session.setAttribute("account", account);
 
         //获得输入的验证码值
         String value1=request.getParameter("vCode");
@@ -58,7 +57,10 @@ public class NewAccountServlet extends HttpServlet {
 
         account1 = new Account();
         account1.setUserId(username);
+        System.out.println("aaaaaaaaaaaaa"+username);
         account1.setPassword(password);
+
+
         account1.setFirstName(firstName);
         account1.setLastName(lastName);
         account1.setEmail(email);
@@ -78,6 +80,7 @@ public class NewAccountServlet extends HttpServlet {
 
         if(isSame){
             accountService = new AccountService();
+            System.out.println("注册！！！！1111"+account1.getUserId());
             accountService.insertAccount(account1);
 
             if(account1 != null){

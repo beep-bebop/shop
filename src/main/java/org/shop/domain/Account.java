@@ -30,7 +30,7 @@ public class Account implements Serializable {
     }
 
     public void setUserId(String UserId) {
-        this.userId = userId;
+        this.userId = UserId;
     }
 
     public String getPassword() {

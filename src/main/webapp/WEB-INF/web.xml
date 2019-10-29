@@ -271,4 +271,39 @@
     <servlet-name>LogServlet</servlet-name>
     <url-pattern>/logServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>UsernameIsExistServlet</servlet-name>
+    <servlet-class>org.shop.servlets.UsernameIsExistServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UsernameIsExistServlet</servlet-name>
+    <url-pattern>/usernameIsExistServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>FindResultServlet</servlet-name>
+    <servlet-class>org.shop.servlets.FindResultServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindResultServlet</servlet-name>
+    <url-pattern>/findResultServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>UpdateCartJSServlet</servlet-name>
+    <servlet-class>org.shop.servlets.UpdateCartJSServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateCartJSServlet</servlet-name>
+    <url-pattern>/updateCartJSServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>CategoryShowJsServlet</servlet-name>
+    <servlet-class>org.shop.servlets.CategoryShowJsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CategoryShowJsServlet</servlet-name>
+    <url-pattern>/categoryShowJsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

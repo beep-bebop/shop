@@ -1,5 +1,7 @@
 package org.shop.servlets;
 
+import org.apache.log4j.PropertyConfigurator;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +20,7 @@ public class Log4InitServlet extends HttpServlet {
         System.setProperty("logPath", "C://Users//魏方圆//Desktop//myLog.log");
         System.err.println("Log4j Servlet test Path: " + System.getProperty("logPath"));
 
-        //PropertyConfigurator.configure(getServletContext().getRealPath("/") + getInitParameter("configfile"));
+        PropertyConfigurator.configure(getServletContext().getRealPath("/") + getInitParameter("configfile"));
 
     }
 }

@@ -24,14 +24,22 @@ public class SearchProductServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         keyword = request.getParameter("keyword");
-        //request.setAttribute("keyword", keyword);
         CatalogService service = new CatalogService();
         List<Product> productList = service.searchProductList(keyword);
-
-        //保存数据
         HttpSession session = request.getSession();
-        session.setAttribute("keyword", keyword);
-        session.setAttribute("productList", productList);
+        //保存数据
+        if(productList == null) {
+            Product none = new Product();
+            none.setProductId("Not Exist");
+            none.setName("Not Exist");
+            productList.add(none);
+            session.setAttribute("keyword", "Not Exist");
+            session.setAttribute("productList", productList);
+        }
+        else {
+            session.setAttribute("keyword", keyword);
+            session.setAttribute("productList", productList);
+        }
 
         Account account = (Account)session.getAttribute("account");
 

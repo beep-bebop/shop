@@ -35,11 +35,11 @@ public class viewCategoryServlet extends HttpServlet {
         JSONArray jsonList=JSONArray.fromObject(productList);
         System.out.println(jsonList);
         //将list转换为json对象
-        String jsonStr="{'productList':"+jsonList.toString()+"}";
-        PrintWriter out = resp.getWriter();
-        out.print(jsonStr);
-        out.flush();
-        out.close();
+//        String jsonStr="{'productList':"+jsonList.toString()+"}";
+//        PrintWriter out = resp.getWriter();
+//        out.print(jsonStr);
+//        out.flush();
+//        out.close();
 //        BufferedReader br = new BufferedReader(new InputStreamReader(req.getInputStream(),"utf-8"));
 //        String line = null;
 //        StringBuilder sb = new StringBuilder();

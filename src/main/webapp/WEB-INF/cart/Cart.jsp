@@ -1,16 +1,41 @@
 <%@ include file="../common/IncludeTop.jsp"%>
+<style type="text/css">
+	table thead th {
+		background-color: rgb(156, 186, 95);
+		color: #fff;
+		border-bottom-width: 0;
+	}
 
+	/* Column Style */
+	table td {
+		color: #000;
+	}
+	/* Heading and Column Style */
+	table tr, table th {
+		border-width: 1px;
+		border-style: solid;
+		border-color: rgb(156, 186, 95);
+	}
+
+	/* Padding and font style */
+	table td, table th {
+		padding: 5px 10px;
+		font-size: 12px;
+		font-family: Verdana;
+		font-weight: bold;
+	}
+</style>
 <div id="BackLink">
 	<a href="main">Return to Main Menu</a>
 </div>
 
-<div id="Catalog">
+<div id="Catalog" align="center">
 
 <div id="Cart">
 
 <h2>Shopping Cart</h2>
 	<form action="updateCartQuantities" method="post">
-		<table>
+		<table align="center">
 			<tr>
 				<th><b>Item ID</b></th>
 				<th><b>Product ID</b></th>
@@ -29,7 +54,7 @@
 			</c:if>
 
 			<c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
-				<tr>
+				<tr class="bg">
 					<td>
 						<a href="viewItem?itemId=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
 					</td>
@@ -45,7 +70,9 @@
 						${cartItem.inStock}
 					</td>
 					<td>
-						<input type="text" name="${cartItem.item.itemId}" value="${cartItem.quantity}">
+						<input type="text" id="quantity" onblur="updateCart();" name="${cartItem.item.itemId}" value="${cartItem.quantity}">
+						<div id="cartMsg"></div>
+						<script type="text/javascript" src="../../js/updateCart.js"></script>
 					</td>
 					<td>
 						<!--format标签显示单价-->
@@ -54,17 +81,23 @@
 					</td>
 					<td>
 						<!--format标签显示总价-->
+						<label id="total">
 						<fmt:formatNumber value="${cartItem.total}"
 						pattern="$#,##0.00" />
+						</label>
 					</td>
 					<td>
 						<a class="Button" href="removeItemFromCart?workingItemId=${cartItem.item.itemId}">Remove</a>
 					</td>
 				</tr>
+				<script src="../../js/cartChange.js"></script>
 			</c:forEach>
-			<tr>
-				<td colspan="7">
-					Sub Total: <fmt:formatNumber value="${sessionScope.cart.subTotal}" pattern="$#,##0.00" />
+			<tr id="lastTR">
+				<td colspan="7" id="lastTD">
+					Sub Total:
+					<label id="subtotal">
+					<fmt:formatNumber value="${sessionScope.cart.subTotal}" pattern="$#,##0.00" />
+					</label>
 					<input type="submit" value="Update Cart"/>
 				</td>
 				<td>&nbsp;</td>

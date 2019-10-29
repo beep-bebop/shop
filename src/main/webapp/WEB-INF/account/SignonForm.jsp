@@ -9,8 +9,8 @@
 	<form action="signOn" method="post">
 		<p>Please enter your username and password.</p>
 		<p>
-			Username:<input type="text" name="username" value="j2ee"/><br />
-		    Password:<input type="password" name="password" value="j2ee"/><br />
+			Username:<input type="text" name="username" value=" "/><br />
+		    Password:<input type="password" name="password" value=" "/><br />
 			VerificationCode:<input type="text" name="vCode" size="5" maxlength="4"/>
 			<a href="signOn"><img border="0" src="verificationCode" name="checkcode"></a>
 		</p>

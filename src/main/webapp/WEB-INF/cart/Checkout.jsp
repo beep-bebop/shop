@@ -11,7 +11,7 @@
 		<td>
 		<h2>Checkout Summary</h2>
 
-		<table>
+		<table align="center">
 
 			<tr>
 				<td><b>Item ID</b></td>

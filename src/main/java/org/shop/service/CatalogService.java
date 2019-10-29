@@ -57,12 +57,7 @@ public class CatalogService {
     public List<Product> searchProductList(String keyword) {
         Session session = HibernateUtil.getSession();
         Transaction ts = session.beginTransaction();
-        String hql="from Product p where 1=1";
-        if(keyword!=null&& !"".equals(keyword)) {
-            hql=hql+" and p.productId like '%"+keyword+"%'";
-            hql=hql+" and p.description like '%"+keyword+"%'";
-            hql=hql+" and p.categoryId like '%"+keyword+"%'";
-        }
+        String hql = "from Product as s where s.name like '%"+keyword+"%' and s.categoryId like '%"+keyword+"%'";
         Query query = session.createQuery(hql);
         List list = query.list();
         HibernateUtil.closeSession();
